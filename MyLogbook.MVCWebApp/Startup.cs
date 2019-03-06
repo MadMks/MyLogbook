@@ -29,6 +29,8 @@ namespace MyLogbook.MVCWebApp
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MyConnectionString")));
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddTransient<IFacultyRepository, FacultyRepositoty>();
             services.AddTransient<IGroupRepository, GroupRepository>();
@@ -42,7 +44,7 @@ namespace MyLogbook.MVCWebApp
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

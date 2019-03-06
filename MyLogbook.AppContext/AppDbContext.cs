@@ -19,6 +19,32 @@ namespace MyLogbook.AppContext
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Faculty>().HasData(
+                new Faculty
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Programming",
+
+                },
+                new Faculty
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "System administration and security",
+
+                },
+                new Faculty
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Disign",
+
+                },
+                new Faculty
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Base",
+
+                });
         }
     }
 }
