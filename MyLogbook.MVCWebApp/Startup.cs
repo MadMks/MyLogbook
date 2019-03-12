@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyLogbook.AppContext;
 using MyLogbook.Repositories;
+using MyLogbook.Repositories.Interfaces;
 
 namespace MyLogbook.MVCWebApp
 {
@@ -35,6 +36,7 @@ namespace MyLogbook.MVCWebApp
             services.AddTransient<IFacultyRepository, FacultyRepositoty>();
             services.AddTransient<IGroupRepository, GroupRepository>();
             services.AddTransient<IStudentRepository, StudentRepository>();
+            services.AddTransient<ITeacherRepository, TeacherRepository>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
