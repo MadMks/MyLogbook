@@ -99,21 +99,9 @@ namespace MyLogbook.MVCWebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
+                if (!await _repository.ChangeItemAsync(teacher))
                 {
-                    //_context.Update(teacher);
-                    //await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    //if (!TeacherExists(teacher.Id))
-                    //{
-                    //    return NotFound();
-                    //}
-                    //else
-                    //{
-                    //    throw;
-                    //}
+                    return NotFound();
                 }
                 return RedirectToAction(nameof(Index));
             }
