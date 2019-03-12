@@ -2,6 +2,7 @@
 using MyLogbook.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -40,8 +41,12 @@ namespace MyLogbook.Repositories
         {
             T changed = await GetItemAsync(item.Id);
             if (changed == null) return false;
-            changed = item;
-            return await SaveChangesAsync() > 0;
+            //changed = item;
+
+            await DeleteItemAsync(item.Id);
+            return await AddItemAsync(item);
+
+            //return await SaveChangesAsync() > 0;
 
         }
 
@@ -71,5 +76,6 @@ namespace MyLogbook.Repositories
                 return -1;
             }
         }
+
     }
 }

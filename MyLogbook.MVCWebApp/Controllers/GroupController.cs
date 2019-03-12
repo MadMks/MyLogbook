@@ -97,11 +97,11 @@ namespace MyLogbook.MVCWebApp.Controllers
 
             if (ModelState.IsValid)
             {
-
                 if (!await _repository.ChangeItemAsync(item))
                 {
                     return NotFound();
                 }
+
                 return RedirectToAction(nameof(Index));
             }
             return View(item);
