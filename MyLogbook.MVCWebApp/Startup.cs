@@ -67,6 +67,7 @@ namespace MyLogbook.MVCWebApp
 
                 //context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
+                //context.Database.EnsureDeleted();
             }
 
             app.UseStaticFiles();
