@@ -70,20 +70,20 @@ namespace MyLogbook.MVCWebApp.Controllers
         }
 
         // GET: Teacher/Edit/5
-        //public async Task<IActionResult> Edit(Guid? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+        public async Task<IActionResult> Edit(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        //    var teacher = await _context.Teachers.FindAsync(id);
-        //    if (teacher == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(teacher);
-        //}
+            var teacher = await _repository.GetItemAsync(id.Value);
+            if (teacher == null)
+            {
+                return NotFound();
+            }
+            return View(teacher);
+        }
 
         // POST: Teacher/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
