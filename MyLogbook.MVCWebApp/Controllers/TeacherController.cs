@@ -109,33 +109,30 @@ namespace MyLogbook.MVCWebApp.Controllers
         }
 
         // GET: Teacher/Delete/5
-        //public async Task<IActionResult> Delete(Guid? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+        public async Task<IActionResult> Delete(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        //    var teacher = await _repository
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (teacher == null)
-        //    {
-        //        return NotFound();
-        //    }
+            var teacher = await _repository.GetItemAsync(id.Value);
+            if (teacher == null)
+            {
+                return NotFound();
+            }
 
-        //    return View(teacher);
-        //}
+            return View(teacher);
+        }
 
         // POST: Teacher/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(Guid id)
-        //{
-        //    var teacher = await _context.Teachers.FindAsync(id);
-        //    _context.Teachers.Remove(teacher);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        {
+            await _repository.DeleteItemAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
 
         //private bool TeacherExists(Guid id)
         //{
