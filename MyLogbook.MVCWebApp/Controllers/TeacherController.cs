@@ -28,22 +28,23 @@ namespace MyLogbook.MVCWebApp.Controllers
         }
 
         // GET: Teacher/Details/5
-        //public async Task<IActionResult> Details(Guid? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+        public async Task<IActionResult> Details(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        //    //var teacher = await _repository
-        //    //    .FirstOrDefaultAsync(m => m.Id == id);
-        //    //if (teacher == null)
-        //    //{
-        //    //    return NotFound();
-        //    //}
+            var teacher = await _repository.AllItems
+                .FirstOrDefaultAsync(m => m.Id == id.Value);
 
-        //    return View(teacher);
-        //}
+            if (teacher == null)
+            {
+                return NotFound();
+            }
+
+            return View(teacher);
+        }
 
         // GET: Teacher/Create
         public IActionResult Create()
