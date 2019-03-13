@@ -22,6 +22,8 @@ namespace MyLogbook.AppContext
         {
             base.OnModelCreating(builder);
 
+
+
             builder.Entity<Faculty>().HasData(
                 new Faculty
                 {

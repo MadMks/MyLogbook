@@ -16,5 +16,7 @@ namespace MyLogbook.Entities
         [Column("name")]
         [StringLength(64)]
         public string Name { get; set; }
+        //public virtual Teacher Teacher { get; set; }
+        public virtual List<Teacher> Teachers { get; set; }
     }
 }

@@ -66,9 +66,8 @@ namespace MyLogbook.MVCWebApp
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-                //context.Database.EnsureDeleted();
+                context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
-                //context.Database.EnsureDeleted();
             }
 
             app.UseStaticFiles();
