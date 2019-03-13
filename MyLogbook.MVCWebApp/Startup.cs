@@ -37,6 +37,7 @@ namespace MyLogbook.MVCWebApp
             services.AddTransient<IGroupRepository, GroupRepository>();
             services.AddTransient<IStudentRepository, StudentRepository>();
             services.AddTransient<ITeacherRepository, TeacherRepository>();
+            services.AddTransient<ISubjectRepository, SubjectRepository>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
