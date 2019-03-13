@@ -12,6 +12,7 @@ namespace MyLogbook.AppContext
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Mark> Marks { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
             :base (options)
@@ -22,8 +23,8 @@ namespace MyLogbook.AppContext
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<TeacherSubject>()
-                .HasKey(x => new { x.SubjectId, x.TeacherId });
+            //builder.Entity<TeacherSubject>()
+            //    .HasKey(x => new { x.SubjectId, x.TeacherId });
             builder.Entity<TeacherSubject>()
                 .HasOne(x => x.Subject)
                 .WithMany(m => m.Teachers)

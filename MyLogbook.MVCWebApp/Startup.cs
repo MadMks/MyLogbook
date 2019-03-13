@@ -38,6 +38,7 @@ namespace MyLogbook.MVCWebApp
             services.AddTransient<IStudentRepository, StudentRepository>();
             services.AddTransient<ITeacherRepository, TeacherRepository>();
             services.AddTransient<ISubjectRepository, SubjectRepository>();
+            services.AddTransient<IMarkRepository, MarkRepository>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -66,7 +67,7 @@ namespace MyLogbook.MVCWebApp
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-                context.Database.EnsureDeleted();
+                //context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
             }
 

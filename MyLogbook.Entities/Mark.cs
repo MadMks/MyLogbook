@@ -9,8 +9,9 @@ namespace MyLogbook.Entities
     [Table("marks")]
     public class Mark : DbEntity
     {
-        // TODO TeachSubjId
+        public virtual TeacherSubject TeacherSubject { get; set; }
         public virtual Student Student { get; set; }
+
         [Column("value")]
         public int Value { get; set; }
     }
