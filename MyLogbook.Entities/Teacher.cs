@@ -19,7 +19,6 @@ namespace MyLogbook.Entities
         public string LastName { get; set; }
 
         // TODO DepartmentId -> TODO: Create departments
-        //public virtual Subject Subject { get; set; }
-        public virtual List<Subject> Subjects { get; set; }
+        public virtual List<TeacherSubject> Subjects { get; set; }
     }
 }

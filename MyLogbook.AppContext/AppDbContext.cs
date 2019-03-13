@@ -22,7 +22,16 @@ namespace MyLogbook.AppContext
         {
             base.OnModelCreating(builder);
 
-
+            builder.Entity<TeacherSubject>()
+                .HasKey(x => new { x.SubjectId, x.TeacherId });
+            builder.Entity<TeacherSubject>()
+                .HasOne(x => x.Subject)
+                .WithMany(m => m.Teachers)
+                .HasForeignKey(x => x.SubjectId);
+            builder.Entity<TeacherSubject>()
+                .HasOne(x => x.Teacher)
+                .WithMany(e => e.Subjects)
+                .HasForeignKey(x => x.TeacherId);
 
             builder.Entity<Faculty>().HasData(
                 new Faculty
