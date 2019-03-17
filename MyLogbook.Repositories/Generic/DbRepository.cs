@@ -39,15 +39,8 @@ namespace MyLogbook.Repositories
 
         async public Task<bool> ChangeItemAsync(T item)
         {
-            T changed = await GetItemAsync(item.Id);
-            if (changed == null) return false;
-            //changed = item;
-
             await DeleteItemAsync(item.Id);
             return await AddItemAsync(item);
-
-            //return await SaveChangesAsync() > 0;
-
         }
 
         async public Task<bool> DeleteItemAsync(Guid id)
